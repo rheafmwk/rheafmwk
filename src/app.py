@@ -43,6 +43,5 @@ def node(nodename):
 @app.route('/analyze_flow', methods=['POST'])
 def analyze_flow():
     content = request.get_json(silent=True)
-    #print(content)
     return analyzeflow.getanalysis(content)
 

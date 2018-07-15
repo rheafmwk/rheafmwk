@@ -3,7 +3,7 @@ from spacy.tokens.doc import Doc
 from nltk import tokenize
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import rake
-from py2neo import Graph
+from py2neo import Graph, authenticate
 import operator
 import io
 import os
@@ -11,7 +11,13 @@ import sys
 import json
 import re
 
-g = Graph(password="neo5j")
+authenticate("hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24789", "rheauser", "b.tvYI5zZ7SWCQ.l04N5jzsNkbFCzFf")
+g = Graph("http://hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24789", bolt = False)
+
+#authenticate("hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24780", "rheauser", "b.tvYI5zZ7SWCQ.l04N5jzsNkbFCzFf")
+#g = Graph("bolt://hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24786", user="rheauser", password="b.tvYI5zZ7SWCQ.l04N5jzsNkbFCzFf", bolt=True, secure = True, http_port = 24789, https_port = 24780)
+#g = Graph("https://hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24789", bolt = False)
+
 fileDir = os.path.dirname(os.path.realpath('__file__'))
 stoppath = os.path.join(fileDir, "src/static/assets/SmartStoplist.txt")
 rake_object = rake.Rake(stoppath, 5, 3, 2)
