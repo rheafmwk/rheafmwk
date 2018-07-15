@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>rhea.framework Flow Template</title>
+  <meta name="Rhea Flow Template" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="../static/css/select2.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <style>
+  	.custom-file-control:after {
+  	    content: attr(data-content) !important;
+  	}
+  </style>
+</head>
+<body>
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+  	  <a class="navbar-brand" href="/">
+  	    <img src="../static/assets/rhea.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+  	    rhea.framework
+  	  </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rheanavbartoggle" aria-controls="rheanavbartoggle" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+	   <div class="collapse navbar-collapse" id="rheanavbartoggle">
+	    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	         <li class="nav-item">
+	           <a class="nav-link" href="/">Overview</a>
+	         </li>
+	         <li class="nav-item active">
+	           <a class="nav-link" href="/flowtemplate">Template<span class="sr-only">(current)</span></a>
+	         </li>
+	         <li class="nav-item">
+				 
+	           <a class="nav-link" href="/ontologyview">Model</a>
+	         </li>
+	    </ul>
+		<a href="/" class="btn btn-outline-primary btn-lg my-2 my-sm-0 btn-sm" role="button" aria-disabled="true">Documentation</a>
+		<a href="http://www.github.com" class="ml-2">
+		    <img src="../static/assets/mark-github.svg" width="30" height="30" alt="">
+		  </a>
+	</div>
+	</nav>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-8">
+	  <h3 class="my-3">Flow Template
+	   <a href="http://www.google.at" class="btn btn-outline-primary float-right ml-2" role="button" aria-pressed="true">Guideline</a>
+	  <a href="http://www.google.at" class="btn btn-outline-primary float-right ml-2" role="button" aria-pressed="true">Print Version</a>
+	  </h3>
+	   <div class="form-group">
+		 <label for="flowTitle">Title:</label>
+	  	 <input class="form-control form-control-lg" id="flowTitle" type="text">
+	 </div>
+	  <div class="form-group">
+		  <label for="flowDescription">Description:</label>
+	   	 <textarea class="form-control" rows="35" id="flowDescription"></textarea>
+	  </div>
+  	   <div class="form-group">
+		  <label for="flowPicURL">Picture URL:</label>
+  	  	 <input class="form-control form-control-lg" id="flowPicURL" type="text">
+  	 </div>
+ 	   <div class="form-group">
+		   <label for="flowRefURL">Reference URL:</label>
+ 	  	 <input class="form-control form-control-lg" id="flowRefURL" type="text">
+ 	 </div>
+ 	 	<div class="form-group">
+		  <label for="coreflowSelect">Categories:</label>
+ 		  <div class="mt-2">
+		  <select class="coreflowSelect" id="flowCoreFlowSelection" multiple="multiple">	
+ 				<option>Prototype Team Identity</option>
+ 	        	<option>Organize for Complexity</option>
+ 		        <option>Facilitate Team Cohesion</option>
+ 		        <option>Structure for Task Effectiveness</option>
+ 		 </select>
+	     </div>
+		 <div class="mt-2">
+ 	      <select class="behaviourSelect" id="flowBehaviourSelection" multiple="multiple">
+  			<optgroup label="Person-related Behaviour">			
+ 				 <option>Team Member Selection</option>
+ 	        	 <option>Team Norming</option>
+				 <option>Team Structure Management</option>
+				 <option>Role Modeling</option>
+				 <option>Communication</option>
+				 <option>Conflict Resolution</option>
+				 <option>Consulting</option>
+				 <option>Coaching</option>
+				 <option>Motivating</option>
+				 <option>Mentoring</option>
+ 			</optgroup>
+ 			 <optgroup label="Task-related Behaviour">
+ 		        <option>Planning and Scheduling</option>
+ 		        <option>Allocating Resources</option>
+ 		        <option>Monitoring and Controlling</option>
+ 			</optgroup>
+ 			 <optgroup label="Change-related Behaviour">
+ 		        <option>Continuous Learning</option>
+ 		        <option>Sensing</option>
+ 		        <option>Vision</option>
+ 			</optgroup>
+			<optgroup label="Boundary-spanning Behaviour">
+ 		        <option>Buffering</option>
+ 		        <option>Managing Interfaces</option>
+ 		        <option>Representing</option>
+ 			</optgroup>
+ 			 <optgroup label="Emergent Process Facilitation">
+ 		        <option>Creating a supportive Team Atmosphere</option>
+ 		        <option>Enabling Team Processes</option>
+ 		        <option>Interpersonal Facilitation</option>
+ 		        <option>Co-Leadership</option>
+ 			</optgroup>
+ 	      </select>
+	      </div>
+		  <div class="mt-2">
+ 	      <select class="riskSelect" id="flowRiskSelection" multiple="multiple">
+  			<optgroup label="Structural Risk">			
+ 				 <option>Orientation</option>
+ 	        	 <option>Funding</option>
+  		        <option>Performance Strategies - Goals - Schedules</option>
+  		        <option>Role Definition</option>
+  		        <option>Resources and Technical Knowledge Acquisition</option>
+ 		        <option>Complexities in Market - Organization - and Tasks</option>
+ 			</optgroup>
+ 			 <optgroup label="Process Risk">
+ 		        <option>Motivation</option>
+ 		        <option>Conflict in  Roles - Team - Organization Politics</option>
+ 		        <option>Team Atmosphere</option>
+ 		        <option>Reassurance</option>
+ 		        <option>Interpersonal Relationships</option>
+ 		        <option>Change</option>
+ 		        <option>Leadership Experience</option>
+ 		        <option>Communication</option>
+ 			</optgroup>
+ 		</select>
+	    </div>
+		<div class="mt-2 mb-2">
+       <select class="upPhase" id="flowUPSelection" multiple="multiple">	
+ 			<option>Inception</option>
+         	<option>Elaboration</option>
+ 	        <option>Construction</option>
+ 	        <option>Transition</option>
+ 	 </select>
+ 		</div>
+ 	  </div>
+	  <label class="custom-file float-left">
+	    <input type="file" id="file" class="custom-file-input">
+	    <span class="custom-file-control" data-content="Choose file..."></span>
+	  </label>
+	  <button type="button" class="btn btn-outline-info mb-2 ml-2 float-left" value="Import" id="importJson">Import</button>
+	  <!--<button type="button" class="btn btn-outline-success mb-2 ml-2 float-right" value="Save" id="saveFlow">Save</button>-->
+	  <button type="button" class="btn btn-outline-info mb-2 ml-2 float-right" value="Export" id="exportJson">Export</button>
+  </div>
+  <div class="col-md-4">
+	<div class="text-center">
+		<button class='btn btn-outline-warning btn-lg mt-3 mb-2' id='analyze'>Analyze</button>
+	</div>
+	<p><b>DISCLAIMER:</b> After clicking "Analyze", flow contents are sent to a server. <b>No personal data is stored on the server.</b> If you prefer not to send flow contents, you can <a href="http://github.com">download this project from GitHub</a> to analyze your flow locally.</p>
+	<div class="detailsentiment"><span class="badge badge-warning">Sentiment: ~ </span></div>
+	<div class="detailkeywords"><b>Keywords:</b><span class="badge badge-secondary">Love (6.45)</span><span class="badge badge-secondary">Test (2.645)</span><span class="badge badge-secondary">Unified Process (0.4)</span><span class="badge badge-secondary">More info (0.3334)</span><span class="badge badge-secondary">Team (0.12)</span></div>
+	<p>
+	<div class="detailflows"></div>
+	<p>
+  </div>
+  </div>
+  
+</div>
+
+<footer class="py-3 bg-light">
+	 <div class="container">
+    <p class="m-0 text-center"><small>Version 1.0 (2017). This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>. Project source code is released under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License (Version 2.0)</a>. Contributors: David Haselberger.</small></p>
+</div>
+</footer>
+		
+<script src="../static/js/jquery-3.2.1.min.js"></script>
+<script src="../static/js/popper.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/select2.min.js"></script>
+<script src="../static/js/flow.js"></script>
+<script type="text/javascript">
+	$("#flowCoreFlowSelection").select2({
+		placeholder: "Core Flow",
+	 width: '100%'	});
+	$("#flowBehaviourSelection").select2({
+		placeholder: "Behaviour",
+	 width: '100%'	});
+ 	$("#flowRiskSelection").select2({
+ 		placeholder: "Risk",
+ 	 width: '100%'	});
+  	$("#flowUPSelection").select2({
+  		placeholder: "Unified Process Life-Cycle Phase",
+  	 width: '100%'	});
+	 $("input[type=file]").change(function () {
+	   var fieldVal = $(this).val().replace(/C:\\fakepath\\/i, '');
+	   if (fieldVal != undefined || fieldVal != "") {
+	     $(this).next(".custom-file-control").attr('data-content', fieldVal);
+	   }
+	 });
+</script>
+</body>
+</html>

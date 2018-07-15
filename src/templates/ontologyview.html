@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>rhea.framework Reference Model</title>
+    <meta name="Rhea Reference Model" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+	<style>
+
+	    .node {
+	        font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	        fill: #bbb;
+	    }
+
+	    .node:hover {
+	        fill: #000;
+	    }
+
+	    .link {
+	        stroke: linen;
+	        fill: none;
+	        pointer-events: none;
+	    }
+
+	    .node:hover,
+	    .node--source,
+	    .node--target {
+	        font-weight: 300;
+	    }
+
+	    .node--source {
+	        fill: #2ca02c;
+			stroke-opacity: .4;
+	    }
+
+	    .node--target {
+	        fill: #d62728;
+			stroke-opacity: .4;
+	    }
+
+	    .link--source,
+	    .link--target {
+	    }
+
+	    .link--source {
+	        stroke: #d62728;
+	    }
+
+	    .link--target {
+	        stroke: #2ca02c;
+	    }
+	
+		.svg-container {
+		    display: inline-block;
+		    position: relative;
+		    width: 100%;
+		    padding-bottom: 100%; /* aspect ratio */
+		    vertical-align: top;
+		    overflow: hidden;
+		}
+		.svg-content-responsive {
+		    display: inline-block;
+		    position: absolute;
+		    top: 10px;
+		    left: 0;
+		}
+
+	</style>
+</head>
+<body>
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+  	  <a class="navbar-brand" href="/">
+  	    <img src="../static/assets/rhea.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+  	    rhea.framework
+  	  </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rheanavbartoggle" aria-controls="rheanavbartoggle" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+	   <div class="collapse navbar-collapse" id="rheanavbartoggle">
+	    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	         <li class="nav-item">
+	           <a class="nav-link" href="/">Overview</a>
+	         </li>
+	         <li class="nav-item">
+	           <a class="nav-link" href="/flowtemplate">Template</a>
+	         </li>
+	         <li class="nav-item active">
+	           <a class="nav-link" href="/ontologyview">Model<span class="sr-only">(current)</span></a>
+	         </li>
+	    </ul>
+		<a href="/" class="btn btn-outline-primary btn-lg my-2 my-sm-0 btn-sm" role="button" aria-disabled="true">Documentation</a>
+		<a href="http://www.github.com" class="ml-2">
+		    <img src="../static/assets/mark-github.svg" width="30" height="30" alt="">
+		  </a>
+	</div>
+	</nav>
+	<div class="container-fluid">
+	<div class="row">
+	  <div class="col-md-8">
+		<div id="modelvis">
+			<div id="loading"></div>
+		  <!-- Content here -->
+		</div>
+		<div class="text-center">
+		<a target="_blank" href="http://127.0.0.1:7474/browser/" class="btn btn-outline-success btn-sm mt-4" role="button" aria-pressed="true">Explore the Model Graph</a><p>
+			<span class="small">(user/pass: <mark>rhea</mark>)</span>
+		</div>
+	  </div>
+			
+	  <div class="col-md-4">
+        <div class="detailtitle"></div>
+		<div class="detailcoreflow"><span class="badge badge-info">Facilitate Team Cohesion</span></div>
+		<div class="detailbehaviour"><span class="badge badge-success">Planning and Scheduling</span>
+		<span class="badge badge-success">Motivating</span></div>
+		<div class="detailrisk"><span class="badge badge-danger">Conflicts in Roles, Team and Organization</span>
+		<span class="badge badge-danger">Leadership experience</span></div>
+		<div class="detailup"><span class="badge badge-light">Inception</span></div>
+		<div class="mt-2"></div>
+        <div class="detaildescription">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</div><div class="detailreferenceurl"><b>Reference:</b> <a href=http://www.google.at>http://www.google.at</a></div>
+		<div class="mb-2"></div>
+		<div class="detailsentiment"><span class="badge badge-warning">Sentiment: ~ </span></div>
+		<div class="detailkeywords"><b>Keywords:</b><span class="badge badge-secondary">Love (6.45)</span><span class="badge badge-secondary">Test (2.645)</span><span class="badge badge-secondary">Unified Process (0.4)</span><span class="badge badge-secondary">More info (0.3334)</span><span class="badge badge-secondary">Team (0.12)</span></div>
+		<p>
+		<div class="detailflows"></div>
+		<p>
+        <div class="mb-4">
+			<div class="detailimage">
+			<b>Picture:</b><p><img class="img-fluid" src="http://placehold.it/500x300" alt="">
+		 	</div>
+        </div>
+	  </div>
+	</div>
+</div>
+
+<footer class="py-3 bg-light">
+	 <div class="container">
+    <p class="m-0 text-center"><small>Version 1.0 (2017). This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>. Project source code is released under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License (Version 2.0)</a>. Contributors: David Haselberger.</small></p>
+</div>
+</footer>
+	
+<script src="../static/js/jquery-3.2.1.min.js"></script>
+<script src="../static/js/popper.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/d3.min.js"></script>
+<script>
+	//var jsondata;
+	// stroke-opacity: .4;
+	//stroke-width: 2px;
+   // stroke-opacity: 1;
+   
+	$('#loading').empty();
+	$('#loading').html('<div class="text-center mt-4"><span class="lead">Loading data...</span><div>');
+   update()
+   
+	var myboundingrect = document.querySelector('#modelvis')
+   .getBoundingClientRect();
+
+    var diameter = myboundingrect.right - myboundingrect.left,//960,
+        radius = diameter / 2,
+        innerRadius = radius - 120;
+		
+	function setDiameter()
+	{
+		diameter = myboundingrect.right - myboundingrect.left,//960,
+        radius = diameter / 2,
+        innerRadius = radius - 120;
+		return diameter;		
+	}
+
+    var cluster = d3.cluster()
+        .size([360, innerRadius]);
+
+    const line = d3.radialLine()
+        .radius(function(d) { return d.y; })
+        .angle(function(d) { return d.x / 180 * Math.PI; })
+        .curve(d3.curveBundle.beta(0.95));
+
+    var svg = d3.select("#modelvis")
+		.append("div")
+   	 	.classed("svg-container", true) //container class to make it responsive
+		.append("svg")
+		.attr("preserveAspectRatio", "xMinYMin meet")
+   	 	.attr("viewBox", "0 0 " + diameter + " " + diameter)
+		.classed("svg-content-responsive", true)
+        //.attr("width", diameter)
+        //.attr("height", diameter)
+        .append("g")
+        .attr("transform", "translate(" + radius + "," + radius + ")");
+
+	function equalToEventTarget() {
+		    return this == d3.event.target;
+	}
+
+	d3.select("body").on("click",function() 
+	{
+		    var outside = d3.selectAll(".node").filter(equalToEventTarget).empty();
+		    if (outside) {
+				//mouseouted();
+		    }
+	});
+
+    var link = svg.append("g").selectAll(".link"),
+        node = svg.append("g").selectAll(".node");
+
+
+    d3.json("/ontologydata")
+		.on("progress", function() { $( "#loading" ).remove();})
+		.get(function(error, components) {
+        if (error) throw error;
+		
+		var sizeScale = d3.scaleLinear()
+		    .domain([0, d3.max(components, function(d){ return d.weight})])
+		    .range([1, 10]);
+		//jsondata = json;
+		
+        var root = d3.hierarchy(packageHierarchy(components), (d) => d.children);
+
+        var links = connections(root.descendants());
+
+        console.dir(links);
+
+        cluster(root);
+
+        var nodes = root.descendants();
+		
+        link = link
+            .data(links)
+            .enter().append('path')
+            .attr('class', 'link')
+            //.merge(edges)
+            .attr('d', d => line(d.source.path(d.target)))
+			.attr("style", function(d) { return ("stroke-width:" + d.weight + "px;");})
+			//.attr("stroke-width", function(d){ return sizeScale(d[0].size) })
+			.style('stroke-opacity', function(d) { return d.weight; })
+
+        node = node
+            .data(nodes.filter(function(n) { return !n.children; }))
+			.enter()
+  		  	.append("text")
+    		.attr("class", "node")
+			.attr("id", function(d) { return d.data.key.replace(/\s+/g, ''); })
+            .attr("dy", ".31em")
+            .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + (d.y + 8) + ",0)" + (d.x < 180 ? "" : "rotate(180)"); })
+            .style("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
+            .text(function(d) { return d.data.key; })
+            .on("click", mouseovered)
+    });
+	
+	function update(freshdata) {
+		if (freshdata == undefined)
+		{
+			$('.detailtitle').empty();
+			$('.detailtitle').html('<h3 class="my-3">Reference Model</h3>');
+			$('.detailcoreflow').empty();
+			$('.detailcoreflow').html('');
+			$('.detailbehaviour').empty();
+			$('.detailbehaviour').html('');
+			$('.detailrisk').empty();
+			$('.detailrisk').html('');
+			$('.detailup').empty();
+			$('.detailup').html('');
+			$('.detailsentiment').empty();
+			$('.detailsentiment').html('');
+			$('.detaildescription').empty();
+			$('.detaildescription').html('<p> This reference model comprises a collection of experience descriptions concerning  interpersonal leadership interactions in teams (flows) that can </p> <ul> <li>support team performance,</li> <li>serve as anchors in personal reflection and learning processes,</li> <li>be implemented along the <a href="https://en.wikipedia.org/wiki/Unified_Process">Unified Process.</a> </li> </ul>');
+			$('.detailreferenceurl').empty();
+			$('.detailreferenceurl').html('<a href=http://www.google.at>Read more</a><p>');
+			$('.detailkeywords').empty();
+			$('.detailflows').empty();
+			$('.detailkeywords').html('');
+			$('.detailimage').empty();
+			$('.detailimage').html('');
+		}
+		else
+		{
+			var re = /(?:\.([^.]+))?$/;
+			var data = freshdata[0];
+			console.log(data)
+			var mycontents = data.n;
+			console.log(mycontents);
+			var mytype = mycontents.name.substring(0, i = mycontents.name.lastIndexOf("."));
+			//console.log(mytype);
+		    var flowstring = "solarbird.flow";
+			var upstring = "solarbird.upphase";
+			var behaviourstring = "solarbird.behaviour";
+			var riskstring = "solarbird.risk";
+			var cfstring = "solarbird.coreflow";
+			var emotionstring = "solarbird.emotion";
+			if (mycontents.name.indexOf(flowstring) !== -1)
+			{
+				var thename = re.exec(mycontents.name)[1];
+				$('.detailtitle').empty();
+				$('.detailtitle').html('<h3 class="my-3">' + thename + '</h3>');
+				$('.detailcoreflow').empty();
+				$('.detailbehaviour').empty();
+				$('.detailrisk').empty();
+				$('.detailup').empty();
+				$('.detailkeywords').empty();
+				$('.detaildescription').empty();
+				$('.detailreferenceurl').empty();
+				$('.detailflows').empty();
+				nestedcontent = mycontents.connections;
+				var keywordsfound = false;
+				var keyw = {};
+				for (var i = 0; i < nestedcontent.length; i++)
+				{
+					var item = nestedcontent[i];
+					console.log(item);
+					if (item.name.indexOf("solarbird.coreflow") !== -1)
+					{
+						var aname = re.exec(item.name)[1];
+						$('.detailcoreflow').append('<span class="badge badge-info ml-1">' + aname + '</span>');
+					}
+					if (item.name.indexOf("solarbird.behaviour") !== -1)
+					{
+						var aname = re.exec(item.name)[1];
+						$('.detailbehaviour').append('<span class="badge badge-success ml-1">' + aname + '</span>');
+					}
+					if (item.name.indexOf("solarbird.risk") !== -1)
+					{
+						var aname = re.exec(item.name)[1];
+						$('.detailrisk').append('<span class="badge badge-danger ml-1">' + aname + '</span>');
+					}
+					if (item.name.indexOf("solarbird.upphase") !== -1)
+					{
+						var aname = re.exec(item.name)[1];
+						$('.detailup').append('<span class="badge badge-light ml-1">' + aname + '</span>');
+					}
+					if (item.name.indexOf("solarbird.keyword") !== -1)
+					{
+						if (keywordsfound == false)
+						{
+							$('.detailkeywords').append('<b>Keywords:</b>');
+							keywordsfound = true;
+						}
+						var aname = re.exec(item.name)[1];
+					    keyw[aname]=Math.round(Number(item.weight));
+					}
+				}
+				
+				var sortable = [];
+				for (var keywo in keyw) {
+				    sortable.push([keywo, keyw[keywo]]);
+				}
+				
+				sortable.sort(function(first, second) {
+				    return second[1] - first[1];
+				});
+				
+				for (var i = 0; i < sortable.length; i++)
+				{
+					key = sortable[i][0];
+					console.log(key);
+					$('.detailkeywords').append('<span class="badge badge-secondary ml-1">' + key + '(' + keyw[key] + ')</span>');
+				}
+				
+				$('.detailsentiment').empty();
+				var mysentiment = mycontents.sentiment;
+				var senticon = "~";
+				if (mysentiment < -0.3)
+				{
+					senticon = "-";
+				}
+				if (mysentiment > 0.3)
+				{
+					senticon = "+";
+				}
+				$('.detailsentiment').html('<span class="badge badge-warning mb-2">Sentiment: ' + mysentiment.toFixed(2) + ' ' + senticon + '</span>');
+				$('.detaildescription').html(mycontents.description);
+				//$('.detailreferenceurl').html('<b>Reference:</b>');
+				$('.detailreferenceurl').append('<a target="_blank" href=' + mycontents.referenceURL + '>Read more</a>');
+				$('.detailimage').empty();
+				$('.detailimage').html('<b>Picture:</b><p><div class="text-center"><img class="img-fluid" style="max-width: 50%" src="' + mycontents.pictureURL + '" alt=""></div>');
+			}
+			else if (mycontents.name.indexOf(upstring) !== -1)
+			{
+				var thename = re.exec(mycontents.name)[1];
+				$('.detailtitle').empty();
+				$('.detailtitle').html('<h3 class="my-3">' + thename + ' <span class="badge badge-light">&nbsp&nbsp</span></h3>');
+				$('.detailcoreflow').empty();
+				$('.detailbehaviour').empty();
+				$('.detailrisk').empty();
+				$('.detailup').empty();
+				$('.detailkeywords').empty();
+				$('.detaildescription').empty();
+				$('.detailreferenceurl').empty();
+				$('.detailflows').empty();
+				nestedcontent = mycontents.connections;
+				var keywordsfound = false;
+				var flowsfound = false;
+				var keyw = {};
+				var flowdict = {};
+				for (var i = 0; i < nestedcontent.length; i++)
+				{
+					var item = nestedcontent[i];
+					console.log(item);
+					if (item.name.indexOf("solarbird.keyword") !== -1)
+					{
+						if (keywordsfound == false)
+						{
+							$('.detailkeywords').append('<b>Keywords:</b>');
+							keywordsfound = true;
+						}
+						var aname = re.exec(item.name)[1];
+					    keyw[aname]=Math.round(Number(item.weight));
+					}
+					if (item.name.indexOf("solarbird.flow") !== -1)
+					{
+						if (flowsfound == false)
+						{
+							$('.detailflows').append('<b>Related Flows:</b>');
+							flowsfound = true;
+						}
+						var aname = re.exec(item.name)[1];
+					    flowdict[aname]=Math.round(Number(item.weight));
+					}
+				}
+				
+				var sortable = [];
+				for (var keywo in keyw) {
+				    sortable.push([keywo, keyw[keywo]]);
+				}
+				
+				sortable.sort(function(first, second) {
+				    return second[1] - first[1];
+				});
+				
+				
+				for (var i = 0; i < sortable.length; i++)
+				{
+					key = sortable[i][0];
+					//console.log(key);
+					$('.detailkeywords').append('<span class="badge badge-secondary ml-1">' + key + '(' + keyw[key] + ')</span>');
+				}
+				
+				var sortabletwo = [];
+				for (var flo in flowdict) {
+				    sortabletwo.push([flo, flowdict[flo]]);
+				}
+				
+				sortabletwo.sort(function(first, second) {
+				    return second[1] - first[1];
+				});
+				
+				for (var i = 0; i < sortabletwo.length; i++)
+				{
+					var fl = sortabletwo[i][0];
+					//console.log(fl);
+					var id = fl.replace(/\s+/g,'');
+					$('.detailflows').append('<button type="button" onclick="helperOvered('+id+')" class="btn btn-sm btn-outline-info mt-1 mb-1 ml-1 mr-1">' + fl + '</button>');
+				}
+				
+				$('.detailsentiment').empty();
+				$('.detaildescription').html(mycontents.description);
+				//$('.detailreferenceurl').html('<b>Reference:</b>');
+				$('.detailreferenceurl').append('<a target="_blank" href=' + mycontents.referenceURL + '>Read more</a>');
+				$('.detailimage').empty();
+				$('.detailimage').html('<b>Picture:</b><p><div class="text-center"><img class="img-fluid" style="max-width: 50%" src="' + mycontents.pictureURL + '" alt=""></div>');
+			}
+			else if (mycontents.name.indexOf(behaviourstring) !== -1)
+			{
+				var thename = re.exec(mycontents.name)[1];
+				$('.detailtitle').empty();
+				$('.detailtitle').html('<h3 class="my-3">' + thename + ' <span class="badge badge-success">&nbsp&nbsp</span></h3>');
+				$('.detailcoreflow').empty();
+				$('.detailbehaviour').empty();
+				$('.detailrisk').empty();
+				$('.detailup').empty();
+				$('.detailkeywords').empty();
+				$('.detaildescription').empty();
+				$('.detailreferenceurl').empty();
+				$('.detailflows').empty();
+				nestedcontent = mycontents.connections;
+				var keywordsfound = false;
+				var flowsfound = false;
+				var keyw = {};
+				var flowdict = {};
+				if (nestedcontent != undefined)
+				{
+					for (var i = 0; i < nestedcontent.length; i++)
+					{
+						var item = nestedcontent[i];
+						console.log(item);
+						if (item.name.indexOf("solarbird.keyword") !== -1)
+						{
+							if (keywordsfound == false)
+							{
+								$('.detailkeywords').append('<b>Keywords:</b>');
+								keywordsfound = true;
+							}
+							var aname = re.exec(item.name)[1];
+						    keyw[aname]=Math.round(Number(item.weight));
+						}
+						if (item.name.indexOf("solarbird.flow") !== -1)
+						{
+							if (flowsfound == false)
+							{
+								$('.detailflows').append('<b>Related Flows:</b>');
+								flowsfound = true;
+							}
+							var aname = re.exec(item.name)[1];
+						    flowdict[aname]=Math.round(Number(item.weight));
+						}
+					}
+				}
+				
+				var sortable = [];
+				for (var keywo in keyw) {
+				    sortable.push([keywo, keyw[keywo]]);
+				}
+				
+				if(sortable.length > 0)
+				{
+					sortable.sort(function(first, second) {
+					    return second[1] - first[1];
+					});
+				
+				
+					for (var i = 0; i < sortable.length; i++)
+					{
+						key = sortable[i][0];
+						//console.log(key);
+						$('.detailkeywords').append('<span class="badge badge-secondary ml-1">' + key + '</span>');
+					}
+				}
+				
+				var sortabletwo = [];
+				for (var flo in flowdict) {
+				    sortabletwo.push([flo, flowdict[flo]]);
+				}
+				
+				if(sortabletwo.length > 0)
+				{
+					sortabletwo.sort(function(first, second) {
+					    return second[1] - first[1];
+					});
+				
+					for (var i = 0; i < sortabletwo.length; i++)
+					{
+						var fl = sortabletwo[i][0];
+						//console.log(fl);
+						var id = fl.replace(/\s+/g,'');
+						$('.detailflows').append('<button type="button" onclick="helperOvered('+id+')" class="btn btn-sm btn-outline-info mt-1 mb-1 ml-1 mr-1">' + fl + '</button>');
+					}
+				}
+				
+				$('.detailsentiment').empty();
+				if(mycontents.description)
+				{ 				
+					$('.detaildescription').html(mycontents.description);
+				}
+				//$('.detailreferenceurl').html('<b>Reference:</b>');
+				if(mycontents.referenceURL)
+				{
+					$('.detailreferenceurl').append('<a target="_blank" href=' + mycontents.referenceURL + '>Read more</a>');
+				}
+				$('.detailimage').empty();
+				//$('.detailimage').html('<b>Picture:</b><p><div class="text-center"><img class="img-fluid" style="max-width: 50%" src="' + mycontents.pictureURL + '" alt=""></div>');
+			}
+			else if (mycontents.name.indexOf(riskstring) !== -1)
+			{
+				var thename = re.exec(mycontents.name)[1];
+				$('.detailtitle').empty();
+				$('.detailtitle').html('<h3 class="my-3">' + thename + ' <span class="badge badge-danger">&nbsp&nbsp</span></h3>');
+				$('.detailcoreflow').empty();
+				$('.detailbehaviour').empty();
+				$('.detailrisk').empty();
+				$('.detailup').empty();
+				$('.detailkeywords').empty();
+				$('.detaildescription').empty();
+				$('.detailreferenceurl').empty();
+				$('.detailflows').empty();
+				nestedcontent = mycontents.connections;
+				var keywordsfound = false;
+				var flowsfound = false;
+				var keyw = {};
+				var flowdict = {};
+				if (nestedcontent != undefined)
+				{
+					for (var i = 0; i < nestedcontent.length; i++)
+					{
+						var item = nestedcontent[i];
+						console.log(item);
+						if (item.name.indexOf("solarbird.keyword") !== -1)
+						{
+							if (keywordsfound == false)
+							{
+								$('.detailkeywords').append('<b>Keywords:</b>');
+								keywordsfound = true;
+							}
+							var aname = re.exec(item.name)[1];
+						    keyw[aname]=Math.round(Number(item.weight));
+						}
+						if (item.name.indexOf("solarbird.flow") !== -1)
+						{
+							if (flowsfound == false)
+							{
+								$('.detailflows').append('<b>Related Flows:</b>');
+								flowsfound = true;
+							}
+							var aname = re.exec(item.name)[1];
+						    flowdict[aname]=Math.round(Number(item.weight));
+						}
+					}
+				}
+				
+				var sortable = [];
+				for (var keywo in keyw) {
+				    sortable.push([keywo, keyw[keywo]]);
+				}
+				
+				if(sortable.length > 0)
+				{
+					sortable.sort(function(first, second) {
+					    return second[1] - first[1];
+					});
+				
+				
+					for (var i = 0; i < sortable.length; i++)
+					{
+						key = sortable[i][0];
+						//console.log(key);
+						$('.detailkeywords').append('<span class="badge badge-secondary ml-1">' + key + '</span>');
+					}
+				}
+				
+				var sortabletwo = [];
+				for (var flo in flowdict) {
+				    sortabletwo.push([flo, flowdict[flo]]);
+				}
+				
+				if(sortabletwo.length > 0)
+				{
+					sortabletwo.sort(function(first, second) {
+					    return second[1] - first[1];
+					});
+				
+					for (var i = 0; i < sortabletwo.length; i++)
+					{
+						var fl = sortabletwo[i][0];
+						//console.log(fl);
+						var id = fl.replace(/\s+/g,'');
+						$('.detailflows').append('<button type="button" onclick="helperOvered('+id+')" class="btn btn-sm btn-outline-info mt-1 mb-1 ml-1 mr-1">' + fl + '</button>');
+					}
+				}
+				
+				$('.detailsentiment').empty();
+				if(mycontents.description)
+				{ 				
+					$('.detaildescription').html(mycontents.description);
+				}
+				//$('.detailreferenceurl').html('<b>Reference:</b>');
+				if(mycontents.referenceURL)
+				{
+					$('.detailreferenceurl').append('<a target="_blank" href=' + mycontents.referenceURL + '>Read more</a>');
+				}
+				$('.detailimage').empty();
+				//$('.detailimage').html('<b>Picture:</b><p><div class="text-center"><img class="img-fluid" style="max-width: 50%" src="' + mycontents.pictureURL + '" alt=""></div>');
+			}
+			else if (mycontents.name.indexOf(cfstring) !== -1)
+			{
+				var thename = re.exec(mycontents.name)[1];
+				$('.detailtitle').empty();
+				$('.detailtitle').html('<h3 class="my-3">' + thename + ' <span class="badge badge-info">&nbsp&nbsp</span></h3>');
+				$('.detailcoreflow').empty();
+				$('.detailbehaviour').empty();
+				$('.detailrisk').empty();
+				$('.detailup').empty();
+				$('.detailkeywords').empty();
+				$('.detaildescription').empty();
+				$('.detailreferenceurl').empty();
+				$('.detailflows').empty();
+				nestedcontent = mycontents.connections;
+				var keywordsfound = false;
+				var flowsfound = false;
+				var keyw = {};
+				var flowdict = {};
+				if (nestedcontent != undefined)
+				{
+					for (var i = 0; i < nestedcontent.length; i++)
+					{
+						var item = nestedcontent[i];
+						console.log(item);
+						if (item.name.indexOf("solarbird.keyword") !== -1)
+						{
+							if (keywordsfound == false)
+							{
+								$('.detailkeywords').append('<b>Keywords:</b>');
+								keywordsfound = true;
+							}
+							var aname = re.exec(item.name)[1];
+						    keyw[aname]=Math.round(Number(item.weight));
+						}
+						if (item.name.indexOf("solarbird.flow") !== -1)
+						{
+							if (flowsfound == false)
+							{
+								$('.detailflows').append('<b>Related Flows:</b>');
+								flowsfound = true;
+							}
+							var aname = re.exec(item.name)[1];
+						    flowdict[aname]=Math.round(Number(item.weight));
+						}
+					}
+				}
+				
+				var sortable = [];
+				for (var keywo in keyw) {
+				    sortable.push([keywo, keyw[keywo]]);
+				}
+				
+				if(sortable.length > 0)
+				{
+					sortable.sort(function(first, second) {
+					    return second[1] - first[1];
+					});
+				
+				
+					for (var i = 0; i < sortable.length; i++)
+					{
+						key = sortable[i][0];
+						//console.log(key);
+						$('.detailkeywords').append('<span class="badge badge-secondary ml-1">' + key + '</span>');
+					}
+				}
+				
+				var sortabletwo = [];
+				for (var flo in flowdict) {
+				    sortabletwo.push([flo, flowdict[flo]]);
+				}
+				
+				if(sortabletwo.length > 0)
+				{
+					sortabletwo.sort(function(first, second) {
+					    return second[1] - first[1];
+					});
+				
+					for (var i = 0; i < sortabletwo.length; i++)
+					{
+						var fl = sortabletwo[i][0];
+						//console.log(fl);
+						var id = fl.replace(/\s+/g,'');
+						$('.detailflows').append('<button type="button" onclick="helperOvered('+id+')" class="btn btn-sm btn-outline-info mt-1 mb-1 ml-1 mr-1">' + fl + '</button>');
+					}
+				}
+				
+				$('.detailsentiment').empty();
+				if(mycontents.description)
+				{ 				
+					$('.detaildescription').html(mycontents.description);
+				}
+				//$('.detailreferenceurl').html('<b>Reference:</b>');
+				if(mycontents.referenceURL)
+				{
+					$('.detailreferenceurl').append('<a target="_blank" href=' + mycontents.referenceURL + '>Read more</a>');
+				}
+				$('.detailimage').empty();
+				$('.detailimage').html('<b>Picture:</b><p><div class="text-center"><img class="img-fluid" style="max-width: 50%" src="' + mycontents.pictureURL + '" alt=""></div>');
+			}
+			else if (mycontents.name.indexOf(emotionstring) !== -1)
+			{
+				var thename = re.exec(mycontents.name)[1];
+				$('.detailtitle').empty();
+				$('.detailtitle').html('<h3 class="my-3">' + thename + ' <span class="badge badge-warning">&nbsp&nbsp</span></h3>');
+				$('.detailcoreflow').empty();
+				$('.detailbehaviour').empty();
+				$('.detailrisk').empty();
+				$('.detailup').empty();
+				$('.detailkeywords').empty();
+				$('.detaildescription').empty();
+				$('.detailreferenceurl').empty();
+				$('.detailflows').empty();
+				nestedcontent = mycontents.connections;
+				var keywordsfound = false;
+				var flowsfound = false;
+				var keyw = {};
+				var flowdict = {};
+				if (nestedcontent != undefined)
+				{
+					for (var i = 0; i < nestedcontent.length; i++)
+					{
+						var item = nestedcontent[i];
+						console.log(item);
+						if (item.name.indexOf("solarbird.keyword") !== -1)
+						{
+							if (keywordsfound == false)
+							{
+								$('.detailkeywords').append('<b>Keywords:</b>');
+								keywordsfound = true;
+							}
+							var aname = re.exec(item.name)[1];
+						    keyw[aname]=Math.round(Number(item.weight));
+						}
+						if (item.name.indexOf("solarbird.flow") !== -1)
+						{
+							if (flowsfound == false)
+							{
+								$('.detailflows').append('<b>Related Flows:</b>');
+								flowsfound = true;
+							}
+							var aname = re.exec(item.name)[1];
+						    flowdict[aname]=Math.round(Number(item.weight));
+						}
+					}
+				}
+				
+				var sortable = [];
+				for (var keywo in keyw) {
+				    sortable.push([keywo, keyw[keywo]]);
+				}
+				
+				if(sortable.length > 0)
+				{
+					sortable.sort(function(first, second) {
+					    return second[1] - first[1];
+					});
+				
+				
+					for (var i = 0; i < sortable.length; i++)
+					{
+						key = sortable[i][0];
+						//console.log(key);
+						$('.detailkeywords').append('<span class="badge badge-secondary ml-1">' + key + '</span>');
+					}
+				}
+				
+				var sortabletwo = [];
+				for (var flo in flowdict) {
+				    sortabletwo.push([flo, flowdict[flo]]);
+				}
+				
+				if(sortabletwo.length > 0)
+				{
+					sortabletwo.sort(function(first, second) {
+					    return second[1] - first[1];
+					});
+				
+					for (var i = 0; i < sortabletwo.length; i++)
+					{
+						var fl = sortabletwo[i][0];
+						//console.log(fl);
+						var id = fl.replace(/\s+/g,'');
+						$('.detailflows').append('<button type="button" onclick="helperOvered('+id+')" class="btn btn-sm btn-outline-info mt-1 mb-1 ml-1 mr-1">' + fl + '</button>');
+					}
+				}
+				
+				$('.detailsentiment').empty();
+				if(mycontents.description)
+				{ 				
+					$('.detaildescription').html(mycontents.description);
+				}
+				//$('.detailreferenceurl').html('<b>Reference:</b>');
+				if(mycontents.referenceURL)
+				{
+					$('.detailreferenceurl').append('<a target="_blank" href=' + mycontents.referenceURL + '>Read more</a>');
+				}
+				$('.detailimage').empty();
+				//$('.detailimage').html('<b>Picture:</b><p><div class="text-center"><img class="img-fluid" style="max-width: 50%" src="' + mycontents.pictureURL + '" alt=""></div>');
+			}	
+		}           
+	}
+	
+	function helperOvered(somenodeid)
+	{
+		console.log(somenodeid);
+		var nod = d3.select(somenodeid).datum();
+		console.log(nod);
+		mouseovered(nod);
+	}
+
+    function mouseovered(d) {
+		console.log(d);
+		$.ajax({
+		      type: "GET",
+		      url: "/node/" + d.data.url,
+		      dataType: "json",
+		      beforeSend: function() {
+		      },
+		      error: function( jqXHR, textStatus, thrownError ) {
+		        return true;
+		      },
+		      success: function(data) {
+		        update(data);
+		        return true;
+			  }
+    	});
+		node
+            .each(function(n) { n.target = n.source = false; });
+
+        link
+            .classed("link--target", function(l) { if (l.target === d) return l.source.source = true; })
+            .classed("link--source", function(l) { if (l.source === d) return l.target.target = true; })
+            .filter(function(l) { return l.target === d || l.source === d; })
+            .each(function() { this.parentNode.appendChild(this); });
+
+        node
+            .classed("node--target", function(n) { return n.target; })
+            .classed("node--source", function(n) { return n.source; });			
+    }
+	
+
+    function mouseouted(d) {
+        console.log("moouseout");
+        link
+            .classed("link--target", false)
+            .classed("link--source", false);
+
+        node
+            .classed("node--target", false)
+            .classed("node--source", false);
+    }
+
+    d3.select(self.frameElement).style("height", diameter + "px");
+
+    function packageHierarchy(components) {
+        var map = {};
+
+		function find(name, data) {
+		    var node = map[name], i;
+		    if (!node) {
+			  node = map[name] = data || {name: name, children: [], url: "/"}; 
+		      if (name.length) {
+		        node.parent = find(name.substring(0, i = name.lastIndexOf(".")));
+		        node.parent.children.push(node);
+		        node.key = name.substring(i + 1); 
+				//if (node.parent.name.substring(0, i = node.parent.name.lastIndexOf(".")) == "solarbird.flow") 
+				//{
+				node.url = node.name;
+					//}
+				//else
+				//{
+				//	node.url = currentURL + "?node=#"
+					//}
+				
+		      }
+		    }
+		    return node;
+        }
+
+        components.forEach(function(d) {
+            find(d.name, d);
+        });
+
+        return map[""];
+    }
+	
+
+    // Return a list of imports for the given array of nodes.
+    function connections(nodes) {
+        var map = {},
+        conns = [];
+
+        // Compute a map from name to node.
+        nodes.forEach(function(d) {
+            map[d.data.name] = d;
+        });
+
+        // For each import, construct a link from the source to target node.
+        nodes.forEach(function(d) {
+            if (d.data.connections) d.data.connections.forEach(function(i) {
+				//console.log(d.data.name);
+				//console.log(i.name);
+                conns.push({source: map[d.data.name], target: map[i.name], weight: i.weight/100});
+            });
+        });
+
+        return conns;
+    }
+
+</script>
+</body>
+</html>
