@@ -55,7 +55,7 @@ for file in os.listdir(loc):
         for item in namedict:
 	    #print(str(item["n.doc_id"]))
             if str(item["n.doc_id"]) == filename:
-                myid = str(item["n.title"])
+                myid = str(item["n.title"].encode('utf-8'))
 		print(myid)
                 mydesc = item["n.description"]
                 myref = str(item["n.referenceURL"])
