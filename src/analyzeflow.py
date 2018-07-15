@@ -1,9 +1,10 @@
 import spacy
 from spacy.tokens.doc import Doc
+from spacy.vocab import Vocab
 from nltk import tokenize
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import rake
-from py2neo import Graph, authenticate
+from py2neo import Graph, Path
 import operator
 import io
 import os
@@ -11,8 +12,15 @@ import sys
 import json
 import re
 
-authenticate("hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24789", "rheauser", "b.tvYI5zZ7SWCQ.l04N5jzsNkbFCzFf")
-g = Graph("http://hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24789", bolt = False)
+
+graphURL = 'http://hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24789'
+graphUser = 'rheauser'
+graphPass = 'b.tvYI5zZ7SWCQ.l04N5jzsNkbFCzFf'
+
+g = Graph(graphURL, user=graphUser, password=graphPass)
+
+#authenticate("hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24789", "rheauser", "b.tvYI5zZ7SWCQ.l04N5jzsNkbFCzFf")
+#g = Graph("http://hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24789", bolt = False)
 
 #authenticate("hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24780", "rheauser", "b.tvYI5zZ7SWCQ.l04N5jzsNkbFCzFf")
 #g = Graph("bolt://hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24786", user="rheauser", password="b.tvYI5zZ7SWCQ.l04N5jzsNkbFCzFf", bolt=True, secure = True, http_port = 24789, https_port = 24780)
@@ -24,7 +32,18 @@ rake_object = rake.Rake(stoppath, 5, 3, 2)
 nlp = spacy.load('en')
 loc = os.path.join(fileDir, "src/static/assets/flowsSerialized")
 docs = []
-namedict = g.run('MATCH (n:Flow) RETURN n.title, n.doc_id, n.description, n.referenceURL').data()
+namedictionary = g.run('MATCH (n:Flow) RETURN n.title, n.doc_id, n.description, n.referenceURL').data()
+#print(namedict)
+
+
+
+namedict = []
+for item in namedictionary:
+	stringitem = dict([(str(k), v) for k, v in item.items()])
+	namedict.append(stringitem)
+#print(namedict)
+
+
 
 for file in os.listdir(loc):
     if file.endswith(".bin"):
@@ -34,22 +53,23 @@ for file in os.listdir(loc):
         mydesc = ""
         myref = ""
         for item in namedict:
-            if item["n.doc_id"] == filename:
-                myid = item["n.title"]
+	    #print(str(item["n.doc_id"]))
+            if str(item["n.doc_id"]) == filename:
+                myid = str(item["n.title"])
+		print(myid)
                 mydesc = item["n.description"]
-                myref = item["n.referenceURL"]
-        for byte_string in Doc.read_bytes(open(os.path.join(loc,file), 'rb')):
-           doc = Doc(nlp.vocab)
-           doc.from_bytes(byte_string)
-           #print(myid)
-           doc.user_data['id']=myid
-           doc.user_data['desc']=mydesc
-           doc.user_data['ref']=myref
-           docs.append(doc)
+                myref = str(item["n.referenceURL"])
+        #for byte_string in open(os.path.join(loc,file), 'r'):
+        doc = Doc(Vocab()).from_disk(os.path.join(loc,file))
+        #doc.from_bytes(byte_string)
+        #print(myid)
+        doc.user_data['id']=myid
+        doc.user_data['desc']=mydesc
+        doc.user_data['ref']=myref
+        docs.append(doc)
 
 
 def getanalysis(flow):
-
     text = flow['description']
     keywlist = []
     keywords = rake_object.run(text)
