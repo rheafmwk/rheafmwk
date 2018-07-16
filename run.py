@@ -1,6 +1,6 @@
-from src import app
+from src import application
 import os
 
-app.secret_key = os.urandom(24)
+application.secret_key = os.urandom(24)
 port = int(os.environ.get('PORT', 5000))
-app.run(host='0.0.0.0', port=port)
+application.run(host='0.0.0.0', port = port)
