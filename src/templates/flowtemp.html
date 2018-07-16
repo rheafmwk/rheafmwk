@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>rhea.framework Flow Template</title>
+  <title>rhea.framework Reflection Template</title>
   <meta name="Rhea Flow Template" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="../static/css/select2.min.css">
@@ -31,12 +31,14 @@
 	           <a class="nav-link" href="/flowtemplate">Template<span class="sr-only">(current)</span></a>
 	         </li>
 	         <li class="nav-item">
-				 
 	           <a class="nav-link" href="/ontologyview">Model</a>
 	         </li>
+	         <li class="nav-item">
+	           <a class="nav-link" href="/literature">Literature</a>
+	         </li>
 	    </ul>
-		<a href="/" class="btn btn-outline-primary btn-lg my-2 my-sm-0 btn-sm" role="button" aria-disabled="true">Documentation</a>
-		<a href="http://www.github.com" class="ml-2">
+		<a href="http://homepage.univie.ac.at/david.haselberger/surveys/index.php?sid=21273&lang=en" class="btn btn-danger btn-lg my-2 my-sm-0 btn-sm" role="button" aria-disabled="true">Evaluate!</a>
+		<a href="https://github.com/rheafmwk/rheafmwk" class="ml-2">
 		    <img src="../static/assets/mark-github.svg" width="30" height="30" alt="">
 		  </a>
 	</div>
@@ -44,9 +46,9 @@
 <div class="container-fluid">
 <div class="row">
   <div class="col-md-8">
-	  <h3 class="my-3">Flow Template
-	   <a href="http://www.google.at" class="btn btn-outline-primary float-right ml-2" role="button" aria-pressed="true">Guideline</a>
-	  <a href="http://www.google.at" class="btn btn-outline-primary float-right ml-2" role="button" aria-pressed="true">Print Version</a>
+	  <h3 class="text-left lead my-2">Reflection (Flow) Template
+	   <!--<a href="http://www.google.at" class="btn btn-outline-primary float-right ml-2" role="button" aria-pressed="true">Guideline</a>-->
+	  <a href="https://fedora.phaidra.univie.ac.at/fedora/objects/o:780694/methods/bdef:Content/get" class="btn btn-outline-primary float-right" role="button" aria-pressed="true">Print Version</a>
 	  </h3>
 	   <div class="form-group">
 		 <label for="flowTitle">Title:</label>
@@ -54,7 +56,7 @@
 	 </div>
 	  <div class="form-group">
 		  <label for="flowDescription">Description:</label>
-	   	 <textarea class="form-control" rows="35" id="flowDescription"></textarea>
+	   	 <textarea class="form-control" rows="35" id="flowDescription" placeholder = "A flow description may include the following reflection anchors: Intent , Context , Tensions that are perceived to influence or establish the situation, (Intended) Solution, Consequences or Resulting Context. Assisting Questions: How would this stakeholder perceive the situation? What would that specific team member say about it? How does colleague A perceive his/her relation to colleague B concerning the situation?"></textarea>
 	  </div>
   	   <div class="form-group">
 		  <label for="flowPicURL">Picture URL:</label>
@@ -152,9 +154,9 @@
   </div>
   <div class="col-md-4">
 	<div class="text-center">
-		<button class='btn btn-outline-warning btn-lg mt-3 mb-2' id='analyze'>Analyze</button>
+		<button class='btn btn-outline-warning mt-2 mb-2' id='analyze'>Analyze</button>
 	</div>
-	<p><b>DISCLAIMER:</b> After clicking "Analyze", flow contents are sent to a server. <b>No personal data is stored on the server.</b> If you prefer not to send flow contents, you can <a href="http://github.com">download this project from GitHub</a> to analyze your flow locally.</p>
+	<p><b>DISCLAIMER:</b> After clicking "Analyze", flow contents are sent to a server over a secure (https) connection. Contents are compared to the reference model by evaluating semantic document similarity using <a href="https://spacy.io"> spacy </a> for natural language processing.  <b>No personal data is stored on the server.</b> If you prefer not to send flow contents, you can <a href="https://github.com/rheafmwk/rheafmwk">download this project from GitHub</a> to analyze your flow locally.</p>
 	<div class="detailsentiment"><span class="badge badge-warning">Sentiment: ~ </span></div>
 	<div class="detailkeywords"><b>Keywords:</b><span class="badge badge-secondary">Love (6.45)</span><span class="badge badge-secondary">Test (2.645)</span><span class="badge badge-secondary">Unified Process (0.4)</span><span class="badge badge-secondary">More info (0.3334)</span><span class="badge badge-secondary">Team (0.12)</span></div>
 	<p>
@@ -167,7 +169,9 @@
 
 <footer class="py-3 bg-light">
 	 <div class="container">
-    <p class="m-0 text-center"><small>Version 1.0 (2017). This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>. Project source code is released under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License (Version 2.0)</a>. Contributors: David Haselberger.</small></p>
+    <p class="m-0 text-center"><small>This website is designed for the demonstration and evaluation of the <i>rhea.framework</i> which is elaborated as part of a doctorate study at the University of Vienna, Austria. Version 1.1 (2018). This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>. Project source code is released under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License (Version 2.0)</a>. 
+		<!--Contributors: <a href="mailto:&#100;&#097;&#118;&#105;&#100;&#068;&#079;&#084;&#104;&#097;&#115;&#101;&#108;&#098;&#101;&#114;&#103;&#101;&#114;&#065;&#084;&#117;&#110;&#105;&#118;&#105;&#101;&#068;&#079;&#084;&#097;&#099;&#068;&#079;&#084;&#097;&#116;">David Haselberger</a>. -->
+	</small></p>
 </div>
 </footer>
 		
