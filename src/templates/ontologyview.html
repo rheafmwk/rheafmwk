@@ -89,14 +89,24 @@
 	         <li class="nav-item active">
 	           <a class="nav-link" href="/ontologyview">Model<span class="sr-only">(current)</span></a>
 	         </li>
+	         <li class="nav-item">
+	           <a class="nav-link" href="/literature">Literature</a>
+	         </li>
 	    </ul>
-		<a href="/" class="btn btn-outline-primary btn-lg my-2 my-sm-0 btn-sm" role="button" aria-disabled="true">Documentation</a>
-		<a href="http://www.github.com" class="ml-2">
+		<a href="http://homepage.univie.ac.at/david.haselberger/surveys/index.php?sid=21273&lang=en" class="btn btn-danger btn-lg my-2 my-sm-0 btn-sm" role="button" aria-disabled="true">Evaluate!</a>
+		<a href="https://github.com/rheafmwk/rheafmwk" class="ml-2">
 		    <img src="../static/assets/mark-github.svg" width="30" height="30" alt="">
 		  </a>
 	</div>
 	</nav>
 	<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="text-left lead my-2">Reference Model <button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#modalInformation"> Information</button></h3>
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
 	<div class="row">
 	  <div class="col-md-8">
 		<div id="modelvis">
@@ -135,9 +145,30 @@
 	</div>
 </div>
 
+<div class="modal fade bd-example-modal-lg" id="modalInformation" tabindex="-1" role="dialog" aria-labelledby="modalReferenceModelInformation" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Reference Model Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        This reference model comprises a collection of experience descriptions concerning  interpersonal leadership interactions in teams (flows) that can </p> <ul> <li>support team performance,</li> <li>serve as anchors in personal reflection and learning processes,</li> <li>be implemented along the <a href="https://en.wikipedia.org/wiki/Unified_Process">Unified Process.</a> </li> </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer class="py-3 bg-light">
 	 <div class="container">
-    <p class="m-0 text-center"><small>Version 1.0 (2017). This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>. Project source code is released under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License (Version 2.0)</a>. Contributors: David Haselberger.</small></p>
+    <p class="m-0 text-center"><small>This website is designed for the demonstration and evaluation of the <i>rhea.framework</i> which is elaborated as part of a doctorate study at the University of Vienna, Austria. Version 1.1 (2018). This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>. Project source code is released under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License (Version 2.0)</a>. 
+		<!--Contributors: <a href="mailto:&#100;&#097;&#118;&#105;&#100;&#068;&#079;&#084;&#104;&#097;&#115;&#101;&#108;&#098;&#101;&#114;&#103;&#101;&#114;&#065;&#084;&#117;&#110;&#105;&#118;&#105;&#101;&#068;&#079;&#084;&#097;&#099;&#068;&#079;&#084;&#097;&#116;">David Haselberger</a>. -->
+	</small></p>
 </div>
 </footer>
 	
@@ -253,7 +284,7 @@
 		if (freshdata == undefined)
 		{
 			$('.detailtitle').empty();
-			$('.detailtitle').html('<h3 class="my-3">Reference Model</h3>');
+			$('.detailtitle').html('<h3 class="my-3"></h3>');
 			$('.detailcoreflow').empty();
 			$('.detailcoreflow').html('');
 			$('.detailbehaviour').empty();
@@ -267,7 +298,7 @@
 			$('.detaildescription').empty();
 			$('.detaildescription').html('<p> This reference model comprises a collection of experience descriptions concerning  interpersonal leadership interactions in teams (flows) that can </p> <ul> <li>support team performance,</li> <li>serve as anchors in personal reflection and learning processes,</li> <li>be implemented along the <a href="https://en.wikipedia.org/wiki/Unified_Process">Unified Process.</a> </li> </ul>');
 			$('.detailreferenceurl').empty();
-			$('.detailreferenceurl').html('<a href=http://www.google.at>Read more</a><p>');
+			$('.detailreferenceurl').html('<a href=#modalInformation data-toggle="modal" data-target="#modalInformation">Read more</a><p>');
 			$('.detailkeywords').empty();
 			$('.detailflows').empty();
 			$('.detailkeywords').html('');
