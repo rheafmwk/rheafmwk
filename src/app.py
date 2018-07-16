@@ -18,6 +18,10 @@ def flowtemplate():
 @app.route('/ontologyview', methods=['GET'])
 def ontologyview():
     return flask.render_template("ontologyview.html")
+
+@app.route('/literature'), methods=['GET'])
+def literature():
+    return flask.render_template("literatureview.html")
     
 @app.route("/ontologydata")
 def ontologydata():
