@@ -14,6 +14,9 @@ def index():
 def flowtemplate():
     return flask.render_template("flowtemp.html")
     
+@app.route('/guideline', methods=['GET'])
+def literature():
+    return flask.render_template("guidelineview.html")
     
 @application.route('/ontologyview', methods=['GET'])
 def ontologyview():
