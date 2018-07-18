@@ -22,6 +22,10 @@ def guideline():
 def ontologyview():
     return flask.render_template("ontologyview.html")
 
+@app.route('/ontologyvisualization', methods=['GET'])
+def ontologyvisualization():
+    return flask.render_template("ontologyexplorer.html")
+
 @application.route('/literature', methods=['GET'])
 def literature():
     return flask.render_template("literatureview.html")
