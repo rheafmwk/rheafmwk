@@ -99,10 +99,16 @@
 		  </a>
 	</div>
 	</nav>
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+	    <li class="breadcrumb-item"><a href="/ontologyview">Reference Model Information</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Model Visualization</li>
+	  </ol>
+	</nav>
 	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<h3 class="text-left lead my-2">Reference Model <button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#modalInformation"> Information</button></h3>
+			<h3 class="text-left lead my-2">Reference Model <button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#modalInformation">Model Schema</button></h3>
 		</div>
 		<div class="col-md-4">
 		</div>
@@ -158,16 +164,13 @@
         </button>
       </div>
       <div class="modal-body">
-		  <h5>General Information</h5>
-		    <p>This reference model comprises a collection of experience descriptions concerning  interpersonal leadership interactions in teams (flows) that can </p> <ul> <li>support team performance,</li> <li>serve as anchors in personal reflection and learning processes,</li> <li>be implemented along the <a href="https://en.wikipedia.org/wiki/Unified_Process">Unified Process.</a> </li> </ul></p>
-		    <hr>
 		    <h5>Model Schema</h5>
 			<p>Central to the reference model are leadership team interaction experience descriptions (flows). Flows are connected to other flows in the reference model based on semantic relationships between flow keywords. By the help of crowd-sourcing each flow was categorized to leadership behaviours, (project) risks, and Unified Process project life-cycle phases. Flows were further attributed to basic emotions according to the <a href="http://www.saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm">NRC Word-Emotion Association Lexicon</a>, version 0.92. Sentiments were evaluated using the <a href="https://github.com/cjhutto/vaderSentiment">Valence Aware Dictionary and sEntiment Reasoner</a>. Each flow is part of one core  flow.</p>
 		    <p>
 		    	<div class="text-center"><img src="../static/assets/RefModModelHP.svg" width="400" height="400" alt=""></div>
 		    </p>
 			<p>
-				The reference model visualization represents keyword relationships, core flow membership and crowd-sourced categorizations. <font color="red">Red</font> links are outgoing relationships. <font color="green">Green</font> links are incoming relationships. Link diameter represents connection weight.
+				The reference model visualization represents keyword relationships and crowd-sourced categorizations. <font color="red">Red</font> links are outgoing relationships. <font color="green">Green</font> links are incoming relationships. Link diameter represents connection weight.
 			</p>
       </div>
       <div class="modal-footer">
@@ -196,7 +199,7 @@
    // stroke-opacity: 1;
    
 	$('#loading').empty();
-	$('#loading').html('<div class="text-center mt-4"><span class="lead">Loading data...</span><div>');
+	$('#loading').html('<div class="text-center mt-4"><span class="lead">Loading data...</span><p>Please wait until reference model nodes and connections are loaded.</p><div>');
    update()
    
 	var myboundingrect = document.querySelector('#modelvis')
@@ -309,7 +312,7 @@
 			$('.detailsentiment').empty();
 			$('.detailsentiment').html('');
 			$('.detaildescription').empty();
-			$('.detaildescription').html('<p> Please wait until reference model nodes and relationships are loaded.</p>');
+			$('.detaildescription').html('<p> To start, please click a label.</p>');
 			$('.detailreferenceurl').empty();
 			$('.detailreferenceurl').html('');
 			$('.detailkeywords').empty();
