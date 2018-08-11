@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-    <title>rhea.framework Reference Model</title>
+    <title>rhea.framework Knowledge Base</title>
     <meta name="Rhea Reference Model" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  
@@ -22,12 +22,34 @@
 			vertical-align: middle;
 			line-height: 300px;
 		}
+		
+		.svg-container {
+		    display: inline-block;
+		    position: relative;
+		    width: 100%;
+		    padding-bottom: 5%; /* aspect ratio */
+		    vertical-align: top;
+		    overflow: hidden;
+		}
+		.svg-content-responsive {
+		    display: inline-block;
+		    position: absolute;
+		    top: 10px;
+		    left: 10px;
+			right: 10px;
+		}
+		
+		.card {
+		        margin: 0 auto; /* Added */
+		        float: none; /* Added */
+		        margin-bottom: 5px; /* Added */
+		}
 	</style>
 </head>
 <body>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
   	  <a class="navbar-brand" href="/">
-  	    <img src="../static/assets/rhea.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+  	    <img src="../static/assets/rhea.svg" width="28" height="28" class="d-inline-block align-top" alt="">
   	    rhea.framework
   	  </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rheanavbartoggle" aria-controls="rheanavbartoggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,84 +61,77 @@
 	           <a class="nav-link" href="/">Overview</a>
 	         </li>
 	         <li class="nav-item">
-	           <a class="nav-link" href="/flowtemplate">Template</a>
+	           <a class="nav-link" href="/flowtemplate">FlowTemplate</a>
 	         </li>
 	         <li class="nav-item active">
-	           <a class="nav-link" href="/ontologyview">Model<span class="sr-only">(current)</span></a>
+	           <a class="nav-link" href="/ontologyview">KnowledgeBase<span class="sr-only">(current)</span></a>
 	         </li>
 	         <li class="nav-item">
 	           <a class="nav-link" href="/literature">Literature</a>
 	         </li>
 	    </ul>
 		<a href="http://homepage.univie.ac.at/david.haselberger/surveys/index.php?sid=21273&lang=en" class="btn btn-danger btn-lg my-2 my-sm-0 btn-sm" role="button" aria-disabled="true">Evaluate!</a>
-		<a href="https://github.com/rheafmwk/rheafmwk" class="ml-2">
-		    <img src="../static/assets/mark-github.svg" width="30" height="30" alt="">
-		  </a>
 	</div>
 	</nav>
 	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<h3 class="text-left lead my-2">Reference Model <a href="/ontologyvisualization" class="btn btn-outline-success  my-2 my-sm-0 float-right" role="button" aria-disabled="true">Model Visualization</a></h3>
+			<h3 class="text-left lead my-2 mb-4">Knowledge Base<a href="/ontologyvisualization" class="btn btn-outline-success float-right" role="button" aria-disabled="true">Visualization</a></h3>
 			<div>
-		  <h5>General Information</h5>
-		    <p>The <i>rhea.framework</i> reference model comprises a collection of experience descriptions concerning interpersonal leadership interactions in teams (flows) that can </p> <ul> <li>support team performance,</li> <li>serve as anchors in personal reflection and learning processes,</li> <li>be arranged along the <a href="https://en.wikipedia.org/wiki/Unified_Process">Unified Process.</a> </li> </ul></p>
+		   <p>The <i>rhea.framework</i> knowledge base comprises a collection of interconnected <i>reference flows</i> (peer reviewed case studies, best practices, organizational patterns) that can </p> <ul> <li>serve as anchors in personal reflection and learning processes,</li> <li>be arranged along the <a href="https://en.wikipedia.org/wiki/Unified_Process">Unified Process.</a> </li> </ul></p>
 		    <hr>
-		    <h5>Core Flows</h5>
-		    <p>
-		    	An initial collection of 78 flows was retrieved through a systematic literature review and ontology development. Four core flows - or foundational topics of leadership team interaction - were distinguished by means of community-detection and document similarity clusterings.
+		    <h5 class="text-center lead mt-4 mb-4">Core Flows</h5>
+		    <p>An initial collection of 78 <i>reference flows</i> was retrieved through a systematic literature review. Four <i>core flows</i> - or core topics in team leadership - were distinguished and interlinked by natural language processing.
 		    </p>
 		</div>
 		  <div class="row">
-	  	  <div class="col-md-3 my-3">
-	  	      <div class="card">
-	  	          <img class="card-img-top" src="../static/assets/PrototypeTeamIdentity.svg" width="150" height="150" alt="">
-	  	          <div class="card-body">
-	  	              <h4 class="card-title">Prototype Team Identity</h4>
-	  	              <p class="card-text">This core flow deals with how individuals of diverse backgrounds working together feel being valuable participants of a team.</p>
-	  	          </div>
-	  	          <div class="card-footer">
-	  	              <a href="#protoModal" class="btn btn-primary" data-toggle="modal" data-target="#protoModal">Key Takeaways</a>
-	  	          </div>
-	  	      </div>
-	  	  </div>
-	  	  <div class="col-md-3 my-3">
-	  	      <div class="card">
-	  	          <img class="card-img-top" src="../static/assets/OrganizeForComplexity.svg" width="150" height="150" alt="">
-	  	          <div class="card-body">
-	  	              <h4 class="card-title">Organize for Complexity</h4>
-	  	              <p class="card-text">The main intent is to find ways to deal with - or rather welcome and deploy - complexity in business or work requirements, (technological) resources, stakeholder involvement and interpersonal team processes. This includes team opportunities such as remote team members or virtual teams.</p>
-	  	          </div>
-	  	          <div class="card-footer">
-	  	              <a href="#orgCompModal" class="btn btn-primary" data-toggle="modal" data-target="#orgCompModal">Key Takeaways</a>
-	  	          </div>
-	  	      </div>
-	  	  </div>
-	  	  <div class="col-md-3 my-3">
-	  	      <div class="card">
-	  	          <img class="card-img-top" src="../static/assets/FacilitateTeamCohesion.svg" width="150" height="150" alt="">
-	  	          <div class="card-body">
-	  	              <h4 class="card-title">Facilitate Team Cohesion</h4>
-	  	              <p class="card-text">In a cohesive team, participants work jointly towards shared goals. Team members work together complementarily - collaboratively rather than individually. Team cohesion is a dynamic, multifaceted, interpersonal process.</p>
-	  	          </div>
-	  	          <div class="card-footer">
-	  	              <a href="#fCohModal" class="btn btn-primary" data-toggle="modal" data-target="#fCohModal">Key Takeaways</a>
-	  	          </div>
-	  	      </div>
-	  	  </div>
-	  	  <div class="col-md-3 my-3">
-	  	      <div class="card">
-	  	          <img class="card-img-top" src="../static/assets/StructureForTaskEffectiveness.svg" width="150" height="150" alt="">
-	  	          <div class="card-body">
-	  	              <h4 class="card-title">Structure for Task Effectiveness</h4>
-	  	              <p class="card-text">Teams work towards shared goals. This core flow spans approaches and tools to complete goals in time, budget and scope satisfying stakeholders and, succeeding, team members. As such, it is most specific to the business area the team operates in. It is about getting things done.</p>
-	  	          </div>
-	  	          <div class="card-footer">
-	  	              <a href="#taskEffModal" class="btn btn-primary" data-toggle="modal" data-target="#taskEffModal">Key Takeaways</a>
-	  	          </div>
-	  	      </div>
-	  	  </div>
-	      </div>
+		  	<div class="col-md-12">
+		  		<div class="row">
+		  			<div class="col-md-7">
+		  				<span class="text-center"><div id="pieChart"></div></span>
+		  			</div>
+		  			<div class="col-md-5">
+		  				<div class="row">
+		  	  	  	      <div id="PTIcard" class="card">
+		  	  	  	          <div class="card-body">
+		  	  	  	              <h5 class="card-title"><img src="../static/assets/PrototypeTeamIdentity.svg" width="20px"/> Prototype Team Identity</h5>
+		  	  	  	              <p class="card-text small">This core flow deals with how individuals of diverse backgrounds working together feel being valuable participants of a team. <a href="#protoModal" data-toggle="modal" data-target="#protoModal">Find out more.</a></p>
+		  	  	  	          </div>
+							  
+		  	  	  	      </div>
+		  				</div>
+						
+		  				<div class="row">
+  		  	  	  	      <div id="OFCcard" class="card">
+  		  	  	  	          <div class="card-body">
+  		  	  	  	              <h5 class="card-title"><img src="../static/assets/OrganizeForComplexity.svg" width="20px"/> Organize for Complexity</h5>
+  		  	  	  	              <p class="card-text small">The main intent is to find ways to deal with - or rather welcome and deploy - complexity in business or work requirements, (technological) resources, stakeholder involvement and interpersonal team processes. This includes team opportunities such as remote team members or virtual teams. <a href="#orgCompModal" data-toggle="modal" data-target="#orgCompModal">Find out more.</a></p>
+  		  	  	  	          </div>
+		  	  	  	          
+		  				</div>
+					</div>
+		  				<div class="row">
+		  	  	  	      <div id="FTCcard" class="card">
+		  	  	  	          <div class="card-body">
+		  	  	  	              <h5 class="card-title"><img src="../static/assets/FacilitateTeamCohesion.svg" width="20px"/> Facilitate Team Cohesion</h5>
+		  	  	  	              <p class="card-text small">In a cohesive team, participants work jointly towards shared goals. Team members work together complementarily - collaboratively rather than individually. Team cohesion is a dynamic, multifaceted, interpersonal process. <a href="#fCohModal" data-toggle="modal" data-target="#fCohModal">Find out more.</a></p>
+		  	  	  	          </div>
+  		  	  	  	          
+		  	  	  	      </div>
+		  				</div>
+		  				<div class="row">
+		  	  	  	      <div id="STEcard" class="card">
+		  	  	  	          <div class="card-body">
+		  	  	  	              <h5 class="card-title"><img src="../static/assets/StructureForTaskEffectiveness.svg" width="20px"/> Structure for Task Effectiveness</h5>
+		  	  	  	              <p class="card-text small">Teams work towards shared goals. This core flow spans approaches and tools to complete goals in time, budget and scope satisfying stakeholders and, succeeding, team members. As such, it is most specific to the business area the team operates in. It is about getting things done. <a href="#taskEffModal" data-toggle="modal" data-target="#taskEffModal">Find out more.</a></p>
+		  	  	  	          </div>
+  		  	  	  	          
+		  	  	  	      </div>
+		  				</div>
+		  			</div>
+		  		</div>
+		  	</div>
+		  </div>
       </div>	
 		</div>
 		
@@ -220,11 +235,11 @@
 		
 		
 		<hr/>
-		<h5>Exploring the Reference Model</h5>
+		<h5 class="text-center lead mt-4 mb-4">Exploring the Knowledge Base</h5>
 	</div>
 
 	<div class="col-md-12">
-			<div class="text-center"><p>The  <a href="/ontologyvisualization" class="btn btn-outline-success  my-2 my-sm-0" role="button" aria-disabled="true">Model Visualization</a> can be used to start delving into the reference model.</p><p>Otherwise, the ontology graph can be <a href="../static/assets/rheadb.zip">downloaded</a> and investigated with, for example, <a href="https://neo4j.com/download/">neo4j-Desktop</a>.</p></div>
+			<div class="text-center"><p>The  <a href="/ontologyvisualization" class="btn btn-outline-success  my-2 my-sm-0" role="button" aria-disabled="true">Visualization</a> can help start delving into the knowledge base.</p><p>Otherwise, the knowledge base graph can be <a href="../static/assets/rheadb.zip">downloaded</a> and investigated with, for example, <a href="https://neo4j.com/download/">neo4j-Desktop</a>.</p></div>
 		</div>
 	</div>
 	</div>
@@ -234,7 +249,7 @@
 
 <footer class="py-3 bg-light">
 	 <div class="container">
-    <p class="m-0 text-center"><small>This website is designed for the demonstration and evaluation of the <i>rhea.framework</i> which is elaborated as part of a doctorate study at the University of Vienna, Austria. Version 1.1 (2018). This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>. Project source code is released under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License (Version 2.0)</a>. <a href="mailto:&#100;&#097;&#118;&#105;&#100;&#068;&#079;&#084;&#104;&#097;&#115;&#101;&#108;&#098;&#101;&#114;&#103;&#101;&#114;&#065;&#084;&#117;&#110;&#105;&#118;&#105;&#101;&#068;&#079;&#084;&#097;&#099;&#068;&#079;&#084;&#097;&#116;">Contact</a>.
+    <p class="m-0 text-center"><small>This website is designed for the demonstration and evaluation of the <i>rhea.framework</i> which is elaborated as part of a doctorate study at the University of Vienna, Austria. Version 1.2 (2018). This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>. Project source code is released under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License (Version 2.0)</a>. <a href="mailto:&#100;&#097;&#118;&#105;&#100;&#068;&#079;&#084;&#104;&#097;&#115;&#101;&#108;&#098;&#101;&#114;&#103;&#101;&#114;&#065;&#084;&#117;&#110;&#105;&#118;&#105;&#101;&#068;&#079;&#084;&#097;&#099;&#068;&#079;&#084;&#097;&#116;">Contact</a>.
 		<!--Contributors: <a href="mailto:&#100;&#097;&#118;&#105;&#100;&#068;&#079;&#084;&#104;&#097;&#115;&#101;&#108;&#098;&#101;&#114;&#103;&#101;&#114;&#065;&#084;&#117;&#110;&#105;&#118;&#105;&#101;&#068;&#079;&#084;&#097;&#099;&#068;&#079;&#084;&#097;&#116;">David Haselberger</a>. -->
 	</small></p>
 </div>
@@ -243,5 +258,248 @@
 <script src="../static/js/jquery-3.2.1.min.js"></script>
 <script src="../static/js/popper.min.js"></script>
 <script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/d3.min.js"></script>
+<script>
+var width = 600,
+    height = 600,
+    radius = 300,
+    colors = d3.scaleOrdinal()
+        .range(['#FAFAFA', '#F2F2F2', '#E6E6E6','#D8D8D8']);
+
+var image_width=100,
+    image_height=100;
+
+var piedata = [
+    {   
+        label: "Organize for Complexity",
+		cardid: "OFCcard",
+        image: "../static/assets/OrganizeForComplexity.svg",
+        value: 50
+    },
+	{   
+        label: "Structure for Task Effectiveness",
+		cardid: "STEcard",
+        image: "../static/assets/StructureForTaskEffectiveness.svg",
+        value: 50
+    },
+    {   
+        label: "Facilitate Team Cohesion",
+		cardid: "FTCcard",
+        image: "../static/assets/FacilitateTeamCohesion.svg",
+        value: 50
+    },
+    {
+        label: "Prototype Team Identity",
+		cardid: "PTIcard",
+        image: "../static/assets/PrototypeTeamIdentity.svg",
+        value: 50 
+    }
+
+  ]
+
+
+
+var arc = d3.arc()
+   .outerRadius(250)
+   .innerRadius(1)
+ 
+var arc2 = d3.arc()
+  .innerRadius(0)
+  .outerRadius(280);
+
+var pie = d3.pie()
+     .value(function(d) {
+     return d.value;
+  })
+
+var svg = d3.select('#pieChart')
+	.append("div")
+   	 .classed("svg-container", true) //container class to make it responsive
+	.append("svg")
+    .attr('width', width)
+    .attr('height', height)
+    .append('g')
+    .attr('transform', 'translate('+(width-radius)+','+(height-radius)+')');
+
+var g = svg.selectAll(".arc")
+      .data(pie(piedata))
+      .enter().append("g")
+      .attr("class", "arc");
+
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d,i) { return colors(i); })
+	  .on("mouseenter", function(d){
+   		  d3.select(this).transition()
+          .duration(1000)
+          .attr("d", arc2);
+		  $("#" + d.data.cardid).addClass('bg-light').addClass('border-danger');
+	  })
+	  .on("mouseleave", function(d) {
+		  d3.selectAll("path").transition()
+          .duration(1000)
+		  .attr("d", arc);
+		  $("#" + d.data.cardid).removeClass('bg-light').removeClass('border-danger');
+		  
+	        })
+	  .on("click", function(d) {
+		  d3.selectAll("path").transition()
+          .duration(1000)
+		  .attr("d", arc);
+   		  d3.select(this).transition()
+          .duration(1000)
+          .attr("d", arc2);
+	  });
+	  /**.on("mouseover", function(d) {
+	  		            	d3.select(this).transition()
+	  			               .duration(1000)
+	  			               .attr("d", arc2);
+	  		             })
+	  				.on("mouseout", function(d) {
+	  		            	d3.select(this).transition()
+	  			               .duration(1000)
+	  			               .attr("d", arc);
+	  		             });**/
+	  
+
+  g.append("g")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+  	  .append("svg:image")
+      .attr("xlink:href",function(d) {return d.data.image;})
+      .attr("width",image_width)
+      .attr("height",image_height)
+      .attr("x",-1*image_width/2)
+      .attr("y",-1*image_height/2)
+      .on("mouseenter", function(d, i)
+		  {
+			  var b = i;
+			  d3.selectAll("path")
+			  .each(function (d, i) {
+			              if (i === b) {
+			                d3.select(this).transition() 
+					          .duration(1000)
+					          .attr("d", arc2);  
+			              }});
+				$("#" + d.data.cardid).addClass('bg-light').addClass('border-danger');
+		  }
+	  )  
+	  .on("click", function(d, i) {
+		  d3.selectAll("path").transition()
+          .duration(1000)
+		  .attr("d", arc);
+		  //alert(i);
+		  var b = i;
+		  d3.selectAll("path")
+		  .each(function (d, i) {
+		              if (i === b) {
+		                d3.select(this).transition() 
+				          .duration(1000)
+				          .attr("d", arc2);  
+		              }});
+		 
+	  });
+	  
+	
+	
+   g.on("click", function(d) {
+    //   alert(d.data.label);
+          // code you want executed on the click event 
+	 	
+      });   
+	 
+	
+	  $("#PTIcard").hover(
+	      function() {
+	          $('#PTIcard').addClass('bg-light').addClass('border-danger');
+			  d3.selectAll("path")
+			  .each(function (d) {
+			              if (d.data.label === "Prototype Team Identity") {
+			                d3.select(this).transition() 
+					          .duration(1000)
+					          .attr("d", arc2);  
+			              }});
+	      },
+	      function() {
+	          $('#PTIcard').removeClass('bg-light').removeClass('border-danger');
+			  d3.selectAll("path")
+			  .each(function (d) {
+			              if (d.data.label === "Prototype Team Identity") {
+			                d3.select(this).transition() 
+					          .duration(1000)
+					          .attr("d", arc);  
+			              }});
+		  }
+	  );
+	  
+	  $("#OFCcard").hover(
+	      function() {
+	          $('#OFCcard').addClass('bg-light').addClass('border-danger');
+			  d3.selectAll("path")
+			  .each(function (d) {
+			              if (d.data.label === "Organize for Complexity") {
+			                d3.select(this).transition() 
+					          .duration(1000)
+					          .attr("d", arc2);  
+			              }});
+	      },
+	      function() {
+	          $('#OFCcard').removeClass('bg-light').removeClass('border-danger');
+			  d3.selectAll("path")
+			  .each(function (d) {
+			              if (d.data.label === "Organize for Complexity") {
+			                d3.select(this).transition() 
+					          .duration(1000)
+					          .attr("d", arc);  
+			              }});
+		  }
+	  );
+	  
+	  $("#FTCcard").hover(
+	      function() {
+	          $('#FTCcard').addClass('bg-light').addClass('border-danger');
+			  d3.selectAll("path")
+			  .each(function (d) {
+			              if (d.data.label === "Facilitate Team Cohesion") {
+			                d3.select(this).transition() 
+					          .duration(1000)
+					          .attr("d", arc2);  
+			              }});
+	      },
+	      function() {
+	          $('#FTCcard').removeClass('bg-light').removeClass('border-danger');
+			  d3.selectAll("path")
+			  .each(function (d) {
+			              if (d.data.label === "Facilitate Team Cohesion") {
+			                d3.select(this).transition() 
+					          .duration(1000)
+					          .attr("d", arc);  
+			              }});
+		  }
+	  );
+	  
+	  $("#STEcard").hover(
+	      function() {
+	          $('#STEcard').addClass('bg-light').addClass('border-danger');
+			  d3.selectAll("path")
+			  .each(function (d) {
+			              if (d.data.label === "Structure for Task Effectiveness") {
+			                d3.select(this).transition() 
+					          .duration(1000)
+					          .attr("d", arc2);  
+			              }});
+	      },
+	      function() {
+	          $('#STEcard').removeClass('bg-light').removeClass('border-danger');
+			  d3.selectAll("path")
+			  .each(function (d) {
+			              if (d.data.label === "Structure for Task Effectiveness") {
+			                d3.select(this).transition() 
+					          .duration(1000)
+					          .attr("d", arc);  
+			              }});
+		  }
+	  );
+  
+</script>
 </body>
 </html>

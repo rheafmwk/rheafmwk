@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-    <title>rhea.framework Reference Model</title>
+    <title>rhea.framework Knowledge Base</title>
     <meta name="Rhea Reference Model" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  
@@ -72,7 +72,7 @@
 <body>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
   	  <a class="navbar-brand" href="/">
-  	    <img src="../static/assets/rhea.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+  	    <img src="../static/assets/rhea.svg" width="28" height="28" class="d-inline-block align-top" alt="">
   	    rhea.framework
   	  </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rheanavbartoggle" aria-controls="rheanavbartoggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,31 +84,28 @@
 	           <a class="nav-link" href="/">Overview</a>
 	         </li>
 	         <li class="nav-item">
-	           <a class="nav-link" href="/flowtemplate">Template</a>
+	           <a class="nav-link" href="/flowtemplate">FlowTemplate</a>
 	         </li>
 	         <li class="nav-item active">
-	           <a class="nav-link" href="/ontologyview">Model<span class="sr-only">(current)</span></a>
+	           <a class="nav-link" href="/ontologyview">KnowledgeBase<span class="sr-only">(current)</span></a>
 	         </li>
 	         <li class="nav-item">
 	           <a class="nav-link" href="/literature">Literature</a>
 	         </li>
 	    </ul>
 		<a href="http://homepage.univie.ac.at/david.haselberger/surveys/index.php?sid=21273&lang=en" class="btn btn-danger btn-lg my-2 my-sm-0 btn-sm" role="button" aria-disabled="true">Evaluate!</a>
-		<a href="https://github.com/rheafmwk/rheafmwk" class="ml-2">
-		    <img src="../static/assets/mark-github.svg" width="30" height="30" alt="">
-		  </a>
 	</div>
 	</nav>
 	<nav aria-label="breadcrumb">
 	  <ol class="breadcrumb">
-	    <li class="breadcrumb-item"><a href="/ontologyview">Reference Model Information</a></li>
-		<li class="breadcrumb-item active" aria-current="page">Model Visualization</li>
+	    <li class="breadcrumb-item"><a href="/ontologyview">Knowledge Base</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Visualization</li>
 	  </ol>
 	</nav>
 	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<h3 class="text-left lead my-2">Reference Model Visualization<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#modalInformation">Model Schema</button></h3>
+			<h3 class="text-left lead my-2">Knowledge Base Visualization<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#modalInformation">Data Schema</button></h3>
 		</div>
 		<div class="col-md-4">
 		</div>
@@ -121,7 +118,7 @@
 		</div>
 		<div class="text-center">
 			<p>
-				The reference model visualization represents keyword relationships, core flow membership and crowd-sourced categorizations. <font color="red">Red</font> links are outgoing relationships. <font color="green">Green</font> links are incoming relationships. Link diameter represents connection weight.
+				The knowledge base visualization represents keyword relationships, core flow membership and crowd-sourced categorizations. <font color="red">Red</font> links are outgoing relationships. <font color="green">Green</font> links are incoming relationships. Link diameter represents connection weight.
 			</p>
 		<!--<a target="_blank" href="https://hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24786/browser/" class="btn btn-outline-success btn-sm mt-4" role="button" aria-pressed="true">Explore the Model Graph</a><p>
 			<span class="small">(user/pass: <mark>rhea/b.qDu3xXGR2P3J.E0mC9jT5c1zJ5kRl</mark>)</span>-->
@@ -158,19 +155,19 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">rhea.framework Reference Model Schema</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">rhea.framework Knowledge Base Data Schema</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-		    <h5>Model Schema</h5>
-			<p>Central to the reference model are leadership team interaction experience descriptions (flows). Flows are connected to other flows in the reference model based on semantic relationships between flow keywords. By the help of crowd-sourcing each flow was categorized to leadership behaviours, (project) risks, and Unified Process project life-cycle phases. Flows were further attributed to basic emotions according to the <a href="http://www.saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm">NRC Word-Emotion Association Lexicon</a>, version 0.92. Sentiments were evaluated using the <a href="https://github.com/cjhutto/vaderSentiment">Valence Aware Dictionary and sEntiment Reasoner</a>. Each flow is part of one core  flow.</p>
+		    <h5>Data Schema</h5>
+			<p>Reference flows are connected to others based on semantic relationships between flow keywords. By the help of crowd-sourcing each reference flow was categorized to leadership behaviours, (project) risks, and Unified Process project life-cycle phases. Reference flows were further attributed to basic emotions according to the <a href="http://www.saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm">NRC Word-Emotion Association Lexicon</a>, version 0.92. Sentiments were evaluated using the <a href="https://github.com/cjhutto/vaderSentiment">Valence Aware Dictionary and sEntiment Reasoner</a>. Each reference flow is part of one core flow.</p>
 		    <p>
 		    	<div class="text-center"><img src="../static/assets/RefModModelHP.svg" width="400" height="400" alt=""></div>
 		    </p>
 			<p>
-				The reference model visualization represents keyword relationships and crowd-sourced categorizations. <font color="red">Red</font> links are outgoing relationships. <font color="green">Green</font> links are incoming relationships. Link diameter represents connection weight.
+				The knowledge base visualization represents keyword relationships and crowd-sourced categorizations. <font color="red">Red</font> links are outgoing relationships. <font color="green">Green</font> links are incoming relationships. Link diameter represents connection weight.
 			</p>
       </div>
       <div class="modal-footer">
@@ -182,7 +179,7 @@
 
 <footer class="py-3 bg-light">
 	 <div class="container">
-    <p class="m-0 text-center"><small>This website is designed for the demonstration and evaluation of the <i>rhea.framework</i> which is elaborated as part of a doctorate study at the University of Vienna, Austria. Version 1.1 (2018). This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>. Project source code is released under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License (Version 2.0)</a>. <a href="mailto:&#100;&#097;&#118;&#105;&#100;&#068;&#079;&#084;&#104;&#097;&#115;&#101;&#108;&#098;&#101;&#114;&#103;&#101;&#114;&#065;&#084;&#117;&#110;&#105;&#118;&#105;&#101;&#068;&#079;&#084;&#097;&#099;&#068;&#079;&#084;&#097;&#116;">Contact</a>.
+    <p class="m-0 text-center"><small>This website is designed for the demonstration and evaluation of the <i>rhea.framework</i> which is elaborated as part of a doctorate study at the University of Vienna, Austria. Version 1.2 (2018). This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>. Project source code is released under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License (Version 2.0)</a>. <a href="mailto:&#100;&#097;&#118;&#105;&#100;&#068;&#079;&#084;&#104;&#097;&#115;&#101;&#108;&#098;&#101;&#114;&#103;&#101;&#114;&#065;&#084;&#117;&#110;&#105;&#118;&#105;&#101;&#068;&#079;&#084;&#097;&#099;&#068;&#079;&#084;&#097;&#116;">Contact</a>.
 		<!--Contributors: <a href="mailto:&#100;&#097;&#118;&#105;&#100;&#068;&#079;&#084;&#104;&#097;&#115;&#101;&#108;&#098;&#101;&#114;&#103;&#101;&#114;&#065;&#084;&#117;&#110;&#105;&#118;&#105;&#101;&#068;&#079;&#084;&#097;&#099;&#068;&#079;&#084;&#097;&#116;">David Haselberger</a>. -->
 	</small></p>
 </div>
@@ -199,7 +196,7 @@
    // stroke-opacity: 1;
    
 	$('#loading').empty();
-	$('#loading').html('<div class="text-center mt-4"><span class="lead">Loading data...</span><p>Please wait until reference model nodes and connections are loaded.</p><div>');
+	$('#loading').html('<div class="text-center mt-4"><span class="lead">Loading data...</span><p>Please wait until knowledge base nodes and connections are loaded.</p><div>');
    update()
    
 	var myboundingrect = document.querySelector('#modelvis')
