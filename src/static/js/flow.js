@@ -366,7 +366,7 @@ function handleData(data) {
 		{
 			if (flowsfound == false)
 			{
-				$('.detailflows').append('<b>Related Flows:</b>');
+				$('.detailflows').append('<b>Related Reference Flows:</b>');
 				$('.detailflows').append('<div id="accordion" role="tablist">');
 				flowsfound = true;
 			}
