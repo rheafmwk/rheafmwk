@@ -77,6 +77,15 @@
 	</div>
 	<hr>
 	<div class="row">
+	  <div class="col-md-12"><div class="text-center lead mt-5"><b>Emotional Landscape</b></div></div>
+	</div>
+	<div class="row">
+	  <div class="col-md-12 mt-4"><div class="text-center"><div id="emoContainer"></div></div>
+  		<p><div class="text-center small">This emotional landscape is derived from associated <i>reference flows</i> based on the <a href="http://www.saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm">NRC Word-Emotion Association Lexicon</a> (v0.92). Find out more about Plutchik's Wheel of Emotions <a href="https://en.wikipedia.org/wiki/Contrasting_and_categorization_of_emotions#Plutchik's_wheel_of_emotions">here</a>. </div>
+	</div>
+	</div>
+	<hr>
+	<div class="row">
 	  <div class="col-md-12"><div class="text-center lead mt-5"><b>Related Reference Flows</b></div>
 	 </div>
  	</div>
@@ -112,7 +121,8 @@
 	</div>
 </footer>
 
-	
+
+<script src="../static/js/d3.min.js"></script>
 <script src="../static/js/jquery-3.2.1.min.js"></script>
 <script src="../static/js/popper.min.js"></script>
 <script src="../static/js/bootstrap.min.js"></script>
@@ -169,6 +179,47 @@
 			console.log(upp)
 			
 		}
+		emo = data.emotionlandscape
+		//max radius = 50
+		var emoCircles = [
+		  { "x_axis": 50, "y_axis": 140, "radius": Number(emo["joy"])/2, "color" : "#fce03b", "name": "Joy"},
+		  { "x_axis": 152, "y_axis": 125, "radius": Number(emo["anticipation"])/2, "color" : "#ff9618", "name": "Anticipation"},
+		  { "x_axis": 254, "y_axis": 110, "radius": Number(emo["anger"])/2, "color" : "#fa0044", "name": "Anger"},
+		  { "x_axis": 356, "y_axis": 100, "radius": Number(emo["disgust"])/2, "color" : "#aa6dba", "name": "Disgust"},
+		  { "x_axis": 458, "y_axis": 100, "radius": Number(emo["fear"])/2, "color" : "#00ad52", "name": "Fear"},
+		  { "x_axis": 560, "y_axis": 110, "radius": Number(emo["trust"])/2, "color" : "#80d52e", "name": "Trust"},
+		  { "x_axis": 662, "y_axis": 125, "radius": Number(emo["sadness"])/2, "color" : "#6a9bcb", "name": "Sadness"},
+		  { "x_axis": 764, "y_axis": 140, "radius": Number(emo["surprise"])/2, "color" : "#00a7c3", "name": "Surprise"}
+	   ];
+		
+	   var svgContainer = d3.select('#emoContainer')
+		  					.append("div")
+ 		 					.classed("svg-container", true) //container class to make it responsive
+		  					.append("svg")
+		  					.attr("width", 816)
+		  					.attr("height", 200);
+		  
+	   var circles = svgContainer.selectAll("circle")
+	                             .data(emoCircles)
+	                             .enter()
+	                             .append("circle");
+	   
+	   var circleAttributes = circles
+	                          .attr("cx", function (d) { return d.x_axis; })
+	                          .attr("cy", function (d) { return d.y_axis; })
+	                          .attr("r", function (d) { return d.radius; })
+	                          .style("fill", function(d) { return d.color; });
+							  
+				   var text = svgContainer.append("svg:g").selectAll("g")
+							  .data(emoCircles)
+							  .enter().append("svg:g");
+
+							 
+
+							  text.append("svg:text")
+									        .attr("x", function (d) { return d.x_axis - 15;})
+									        .attr("y", 190)
+									        .text(function(d) { return d.name; });
 //
 //  
 //  <span style="width:15%" class="bar-2">15%</span>
