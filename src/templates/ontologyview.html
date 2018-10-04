@@ -124,7 +124,7 @@
 		  				<div class="row">
 		  	  	  	      <div id="STEcard" class="card">
 		  	  	  	          <div class="card-body">
-		  	  	  	              <h5 class="card-title"><img src="../static/assets/StructureForTaskEffectiveness.svg" width="20px"/> Structure for Task Effectiveness</h5>
+		  	  	  	              <h5 class="card-title"><img src="../static/assets/StructureForTaskEffectiveness.svg" width="20px"/> Arrange for Task Effectiveness</h5>
 		  	  	  	              <p class="card-text small">Teams work towards shared goals. This core flow spans approaches and tools to complete goals in time, budget and scope satisfying stakeholders and, succeeding, team members. As such, it is most specific to the business area the team operates in. It is about getting things done. <a href="/ste">Find out more.</a></p>
 		  	  	  	          </div>
   		  	  	  	          
@@ -184,7 +184,7 @@ var piedata = [
         value: 50
     },
 	{   
-        label: "Structure for Task Effectiveness",
+        label: "Arrange for Task Effectiveness",
 		cardid: "STEcard",
         image: "../static/assets/StructureForTaskEffectiveness.svg",
         value: 50
@@ -322,7 +322,7 @@ var g = svg.selectAll(".arc")
 	{
 			window.open("/ftc","_self")
 	}
-	if(d.data.label === "Structure for Task Effectiveness")
+	if(d.data.label === "Arrange for Task Effectiveness")
 	{
 			window.open("/ste","_self")
 	}
@@ -405,7 +405,7 @@ var g = svg.selectAll(".arc")
 	          $('#STEcard').addClass('bg-light').addClass('border-info');
 			  d3.selectAll("path")
 			  .each(function (d) {
-			              if (d.data.label === "Structure for Task Effectiveness") {
+			              if (d.data.label === "Arrange for Task Effectiveness") {
 			                d3.select(this).transition() 
 					          .duration(1000)
 					          .attr("d", arc2);  
@@ -415,7 +415,7 @@ var g = svg.selectAll(".arc")
 	          $('#STEcard').removeClass('bg-light').removeClass('border-info');
 			  d3.selectAll("path")
 			  .each(function (d) {
-			              if (d.data.label === "Structure for Task Effectiveness") {
+			              if (d.data.label === "Arrange for Task Effectiveness") {
 			                d3.select(this).transition() 
 					          .duration(1000)
 					          .attr("d", arc);  
