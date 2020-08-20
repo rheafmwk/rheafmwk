@@ -1,13 +1,13 @@
 from py2neo import Graph
 import json
 
-graphURL = 'http://hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24789'
-graphUser = 'rheauser'
-graphPass = 'b.tvYI5zZ7SWCQ.l04N5jzsNkbFCzFf'
+#graphURL = 'http://hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24789'
+#graphUser = 'rheauser'
+#graphPass = 'b.tvYI5zZ7SWCQ.l04N5jzsNkbFCzFf'
 
-#graphURL = 'https://rheafmwk.io:7473'
-#graphUser = 'rhea'
-#graphPass = 'rheafmwk2019'
+graphURL = 'http://localhost:7474'
+graphUser = 'rhea'
+graphPass = 'rheafmwk2019'
 
 g = Graph(graphURL, user=graphUser, password=graphPass)
 
