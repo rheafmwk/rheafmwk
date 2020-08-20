@@ -117,7 +117,7 @@ g = Graph(graphURL, user=graphUser, password=graphPass)
 #g = Graph("https://hobby-ipadfcfgpodkgbkedbggakbl.dbs.graphenedb.com:24789", bolt = False)
 
 def getontologydata():
-    with open('result.json') as f:
+    with open('./result.json') as f:
       finaljson = json.load(f)
     return(finaljson)
 
