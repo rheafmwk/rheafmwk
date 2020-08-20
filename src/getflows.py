@@ -5,7 +5,7 @@ import json
 #graphUser = 'rheauser'
 #graphPass = 'b.tvYI5zZ7SWCQ.l04N5jzsNkbFCzFf'
 
-graphURL = 'http://localhost:7474'
+graphURL = 'http://127.0.0.1:7474'
 graphUser = 'rhea'
 graphPass = 'rheafmwk2019'
 
